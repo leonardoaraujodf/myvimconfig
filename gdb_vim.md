@@ -1,4 +1,8 @@
 # Using GDB under VIM
+
+[Inspired on this tutorial](https://www.baeldung.com/linux/vim-gdb-integration)
+
+
 - Place a .gdbinit file under ~/.gdbinit with the following content:
 
 ```
