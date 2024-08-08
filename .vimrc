@@ -1,15 +1,19 @@
 """" Enable Vundle: vim plugin manager
 
 " required before Vundle initialization
-" set nocompatible        " disable compatibility mode with vi
-" filetype off            " disable filetype detection (but re-enable later, see below)
+set nocompatible        " disable compatibility mode with vi
+filetype off            " disable filetype detection (but re-enable later, see below)
 
 " set the runtime path to include Vundle, and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" Plugin 'VundleVim/Vundle.vim'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+" nerdtree
+Plugin 'preservim/nerdtree'
+Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/vim-gitbranch'
 " Plugin 'wting/rust.vim' " enable syntax highlighting for rust
-" call vundle#end()
+call vundle#end()
 
 
 """" Basic Behavior
@@ -76,3 +80,17 @@ nnoremap <CR> :nohlsearch<CR><CR>
 let g:termdebug_popup = 0
 " Use vertical split
 let g:termdebug_wide = 163
+" Remap C-y to C-t to jump to a tag - ctags
+nnoremap <C-y> <C-]>
+
+"""" lightline plugin configurations
+let g:lightline = {
+            \ 'colorscheme': 'solarized',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+            \ },
+            \ 'component_function': {
+            \   'gitbranch': 'gitbranch#name'
+            \ },
+            \ }

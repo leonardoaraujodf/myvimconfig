@@ -14,7 +14,25 @@ repo will improve too.
 So if you are looking around and want to experiment the amazing lightweight vim text editor go ahead
 and pull out those files. Have fun :)
 
-[Setup GDB under VIM](gdb_vim.md)
+# Install vundle (plug-in manager)
+
+Clone the vundle repo inside the bundle folder
+```bash
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+Copy the .vimrc file and .vim folder to your $HOME directory.
+```bash
+cp -r .vimrc .vim ~/
+```
+
+Launch vim and run `:PluginInstall`. This will install all plugins.
+
+# Current installed plugins through vundle
+- NERDTree
+- lightline
+- vim-gitbranch
+
+We also need to install ctags and cscope.
 
 # ctags
 
@@ -57,7 +75,6 @@ Now under your source code, just type:
 ```
 ctags
 ```
-
 ctags basic commands could be found [here](https://courses.cs.washington.edu/courses/cse451/10au/tutorials/tutorial_ctags.html).
 
 # cscope
@@ -77,4 +94,5 @@ Build the reference database:
 cscope -q -R -b -i cscope.files
 ```
 
-Now follow [this tutorial](https://cscope.sourceforge.net/cscope_vim_tutorial.html) to use cscope under vim (basically you just need to copy the .vim folder to your home directory).
+# How to setup GDB to be used inside vim
+[Click here](gdb_vim.md)
