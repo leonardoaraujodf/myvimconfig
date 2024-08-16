@@ -74,6 +74,10 @@ nnoremap <CR> :nohlsearch<CR><CR>
 "set background=dark    " configure Vim to use brighter colors
 "set autoread           " autoreload the file in Vim if it has been changed outside of Vim
 
+""" Show white spaces as red
+:highlight RedundantSpaces ctermbg=red guibg=red
+:match RedundantSpaces /\s\+$/
+
 """" Use GDB under VIM
 :packadd termdebug
 :set mouse=a
@@ -94,3 +98,6 @@ let g:lightline = {
             \   'gitbranch': 'gitbranch#name'
             \ },
             \ }
+
+""" NERDTree plugin configurations
+noremap <F6> :NERDTreeToggle<CR>
