@@ -10,8 +10,14 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " nerdtree
 Plugin 'preservim/nerdtree'
-Plugin 'itchyny/lightline.vim'
 Plugin 'itchyny/vim-gitbranch'
+Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'wsdjeg/vim-fetch'
 " Plugin 'wting/rust.vim' " enable syntax highlighting for rust
 call vundle#end()
 
@@ -85,19 +91,13 @@ let g:termdebug_popup = 0
 " Use vertical split
 let g:termdebug_wide = 163
 " Remap C-y to C-t to jump to a tag - ctags
-nnoremap <C-y> <C-]>
-
-"""" lightline plugin configurations
-let g:lightline = {
-            \ 'colorscheme': 'solarized',
-            \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-            \ },
-            \ 'component_function': {
-            \   'gitbranch': 'gitbranch#name'
-            \ },
-            \ }
+" nnoremap <C-y> <C-]>
 
 """ NERDTree plugin configurations
 noremap <F6> :NERDTreeToggle<CR>
+
+""" Fzf
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-g> :Gfiles<CR>
+nnoremap <silent> <C-b> :Buffers<CR>
+
