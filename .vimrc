@@ -85,7 +85,7 @@ nnoremap <CR> :nohlsearch<CR><CR>
 :match RedundantSpaces /\s\+$/
 
 """" Use GDB under VIM
-:packadd termdebug
+" :packadd termdebug
 :set mouse=a
 let g:termdebug_popup = 0
 " Use vertical split
@@ -95,6 +95,18 @@ let g:termdebug_wide = 163
 
 """ NERDTree plugin configurations
 noremap <F6> :NERDTreeToggle<CR>
+
+" Start NERDTree and put the cursos back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" Show lines of files on NERDTree
+let g:NERDTreeFileLines = 1
 
 """ Fzf
 nnoremap <silent> <C-p> :Files<CR>
